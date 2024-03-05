@@ -1,0 +1,28 @@
+// required to get $orange variable
+@import '../../node_modules/bootstrap/scss/_functions';
+@import "../../node_modules/bootstrap/scss/_variables";
+@import "../../node_modules/bootstrap/scss/_mixins";
+
+
+$primary: $teal-500; // set the $primary variable
+$secondary: $black;
+
+
+
+// merge with existing $theme-colors map
+$theme-colors: map-merge($theme-colors, ("primary": $primary, "secondary": $secondary));
+
+// set changes
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+.navbar-brand {
+  color: $primary
+}
+
+.nav-link {
+    color : $white
+}
+.nav-link:hover {
+    color: $primary
+}
