@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+industries {% endblock %}
+{% block content %}
+
+<h1 class="mt-4">Industry List</h1>
+<ul>
+    {% for industry in industries %}
+    <li><a href="{{ industry.get_absolute_url }}">{{ industry.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

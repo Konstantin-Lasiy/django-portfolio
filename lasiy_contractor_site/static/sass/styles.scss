@@ -21,8 +21,14 @@ $theme-colors: map-merge($theme-colors, ("primary": $primary, "secondary": $seco
 }
 
 .nav-link {
-    color : $white
+  color: $white
 }
+
 .nav-link:hover {
-    color: $primary
+  color: $primary
+}
+
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }

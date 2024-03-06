@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Service, Project
+from .models import Service, Project, Industry
 
 
 def homepage(request):
@@ -9,28 +9,22 @@ def homepage(request):
 
 def service_list(request):
     services = Service.objects.all()
-    return render(request, 'service_list.html', {'services': services})
+    return render(request, 'services/service_list.html', {'services': services})
 
 
 def service_detail(request, pk):
     service = Service.objects.get(pk=pk)
-    return render(request, 'service_detail.html', {'service': service})
-
-
-def project_list(request):
-    projects = Project.objects.all()
-    return render(request, 'project_list.html', {'projects': projects})
-
-
-def project_detail(request, pk):
-    project = Project.objects.get(pk=pk)
-    return render(request, 'project_detail.html', {'project': project})
+    return render(request, 'services/service_detail.html', {'service': service})
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'services/about.html')
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    return render(request, 'services/contact_us.html')
 
+
+def industry_list(request):
+    industries = Industry.objects.all()
+    return render(request, 'services/industry_list.html', {'industries': industries})

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+Principio | Services {% endblock %}
+{% block content %}
+
+<!-- lasiy_contractor_site/services/templates/services/service_list.html -->
+<h1 class="mt-4">Service List</h1>
+<ul>
+    {% for service in services %}
+    <li><a href="{{ service.get_absolute_url }}">{{ service.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

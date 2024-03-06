@@ -10,6 +10,12 @@
 - [X] Create footer
 - [X] Update colorscheme
 - [ ] Create pages
+  - [ ] Create homepage
+    - [ ] Wireframe
+    - [ ] Create skeleton
+    - [ ] Fill the copy
+    - [ ] Fill the images
+- [ ] Add contact us to header
 - [ ] Research hosting
 - [ ] Host
 - [ ] Buy Domain

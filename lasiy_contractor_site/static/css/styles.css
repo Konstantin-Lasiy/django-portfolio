@@ -11856,4 +11856,9 @@ textarea.form-control-lg {
   color: #20c997;
 }
 
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 /*# sourceMappingURL=styles.css.map */
