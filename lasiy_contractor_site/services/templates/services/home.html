@@ -8,19 +8,45 @@
   <link rel="stylesheet" href="https://unpkg.com/aos/dist/aos.css">
   <script src="https://unpkg.com/aos/dist/aos.js"></script>
 </head>
+<style>
+  .line {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .line2 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+  }
+</style>
 
 <body>
-  <main>
+  <main style="overflow: hidden">
     <div class="container-fluid bg-secondary">
       <div class="container px-4 ">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-          <div class="col-12 col-sm-12 col-lg-5">
-            <img src="{% static 'images/home_lines.png' %}" class="d-block mx-lg-auto img-fluid fade-in"
-              data-aos="fade-left" alt="Lines" width="700" height="500" loading="lazy">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5" style="min-height:400px; ">
+          <div class="col-12 col-sm-12 col-lg-5" style="z-index: 0; position:relative; min-height: 400px">
+            <div class="line" style="position: absolute; top: 0
+            ; left: 0;">
+              <img src="{% static 'images/line1.png' %}" class="d-block mx-lg-auto img-fluid fade-in"
+                data-aos="fade-left" alt="Lines" width="700" height="500" loading="lazy">
+            </div>
+            <div class="line2" style="position: absolute; top: -50px; left: -20%; ">
+              <img src="{% static 'images/line3.png' %}" class="d-block mx-lg-auto img-fluid fade-in"
+                data-aos="fade-bottom" alt="Lines" width="700" height="500" loading="lazy" style="transform:rotate(60deg
+                )">
+            </div>
           </div>
-          <div class="col-lg-7">
+          <div class="col-lg-7" style="z-index:1">
             <h1 class="display-5 text-primary lh-1 mb-3">Unleash the Power of Your Data</h1>
-            <p class="lead text-white">Result-oriented data consulting. Trust our analytics and engineering expertise to
+            <p class="lead text-white">Design-oriented data consulting. Trust our analytics and
+              engineering expertise to
               deliver
               insights, streamline your business processes, and drive growth.
             </p>
