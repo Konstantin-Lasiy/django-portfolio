@@ -23,10 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Support env variables from .env file if defined
 import os
-from dotenv import load_dotenv
-dotenv_path = BASE_DIR / '.env'
-load_dotenv(dotenv_path)
-
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
