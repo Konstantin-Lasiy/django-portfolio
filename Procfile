@@ -1,1 +1,1 @@
-web: python manage.py runserver $PORT
+web: gunicorn lasiy_contractor_site.wsgi
