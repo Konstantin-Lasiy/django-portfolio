@@ -33,10 +33,11 @@ IS_HEROKU_APP = "DYNO" in os.environ and not "CI" in os.environ
 if not IS_HEROKU_APP:
     DEBUG = True
 
+
 if IS_HEROKU_APP:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ["0.0.0.0"]
 
 # Application definition
 
@@ -164,6 +165,6 @@ WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-if os.getenv('DJANGO_DEVELOPMENT') == 'true':
-    from .settings_dev import *  # or specific overrides
+# if os.getenv('DJANGO_DEVELOPMENT') == 'true':
+#     from .settings_dev import *  # or specific overrides
 
