@@ -22,7 +22,7 @@ def about(request):
 
 
 def contact(request):
-    return render(request, 'services/contact_us.html')
+    return render(request, 'services/contact-us.html')
 
 
 def industry_list(request):

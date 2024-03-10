@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Let's Talk{% endblock %}
+{% block content %}
+<style>
+ body{
+    background-image: linear-gradient(to right, #0dcaf0 , magenta);
+ }
+ </style>
+<main>
+    {% include 'services/includes/contact-us-form.html' %}
+</main>
+{% endblock %}
