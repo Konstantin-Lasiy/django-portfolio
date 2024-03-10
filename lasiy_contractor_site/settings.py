@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,12 +26,17 @@ import os
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
+IS_HEROKU_APP = "DYNO" in os.environ and not "CI" in os.environ
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# SECURITY WARNING: don't run with debug turned on in production!
+if not IS_HEROKU_APP:
+    DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
+if IS_HEROKU_APP:
+    ALLOWED_HOSTS = ["*"]
+else:
+    ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -80,17 +85,30 @@ WSGI_APPLICATION = "lasiy_contractor_site.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'lasiy_contractor_site_db',
-        'USER': 'lasiy_contractor_site_db_admin',
-        'PASSWORD': os.environ.get('CONTRACTOR_SITE_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5432',
+if IS_HEROKU_APP:
+    # In production on Heroku the database configuration is derived from the `DATABASE_URL`
+    # environment variable by the dj-database-url package. `DATABASE_URL` will be set
+    # automatically by Heroku when a database addon is attached to your Heroku app. See:
+    # https://devcenter.heroku.com/articles/provisioning-heroku-postgres
+    # https://github.com/jazzband/dj-database-url
+    DATABASES = {
+        "default": dj_database_url.config(
+            conn_max_age=600,
+            conn_health_checks=True,
+            ssl_require=True,
+        ),
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": 'lasiy_contractor_site_db',
+            'USER': 'lasiy_contractor_site_db_admin',
+            'PASSWORD': os.environ.get('CONTRACTOR_SITE_PASSWORD'),
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
 
 # Password validation
