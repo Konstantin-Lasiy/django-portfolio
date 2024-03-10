@@ -84,7 +84,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "lasiy_contractor_site.wsgi.application"
 
 
-# Database
+# Database 
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 if IS_HEROKU_APP:
     # In production on Heroku the database configuration is derived from the `DATABASE_URL`
