@@ -32,9 +32,9 @@ load_dotenv(dotenv_path)
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['principio-website']
 
 
 # Application definition
@@ -139,3 +139,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 if os.getenv('DJANGO_DEVELOPMENT') == 'true':
     from .settings_dev import *  # or specific overrides
+
+import django_heroku
+django_heroku.settings(locals())
