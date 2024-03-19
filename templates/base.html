@@ -29,8 +29,14 @@
                         <li class="nav-item px-4">
                             <a class="nav-link" aria-current="page" href="{% url 'services:home' %}">Home</a>
                         </li>
-                        <li class="nav-item px-4">
-                            <a class="nav-link" href="{% url 'services:service_list' %}">Services</a>
+                        <li class="nav-item dropdown px-4">
+                            <a class="nav-link dropdown-toggle" href="{% url 'services:service_list' %}"
+                             role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="{% url 'services:service_list' %}#analytcs">Data Analytics</a></li>
+                              <li><a class="dropdown-item" href="{% url 'services:service_list' %}#engineering">Data Engineering</a></li>
+                              <li><a class="dropdown-item" href="{% url 'services:service_list' %}#automation">AI and Automation</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link" href="{% url 'services:industries' %}">Industries</a>
@@ -62,11 +68,17 @@
         </div>
     
         <div class="col mb-3">
-    
+          <h5>Site Map</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="{% url 'services:home' %}" class="nav-link p-0 text-body-secondary">Home</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'services:service_list' %}" class="nav-link p-0 text-body-secondary">Services</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'services:industries' %}" class="nav-link p-0 text-body-secondary">Industries</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'services:about' %}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+          </ul>
         </div>
-    
+<!--     
         <div class="col mb-3">
-          <h5>Section</h5>
+          <h5>Industries</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
@@ -85,18 +97,7 @@
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
           </ul>
-        </div>
-    
-        <div class="col mb-3">
-          <h5>Section</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-          </ul>
-        </div>
+        </div> -->
       </footer>
     </div>
 </body>

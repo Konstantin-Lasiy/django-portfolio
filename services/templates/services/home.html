@@ -8,6 +8,26 @@
   <script src="https://unpkg.com/aos/dist/aos.js"></script>
 </head>
 <style>
+  .svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* aspect ratio */
+  vertical-align: top;
+  overflow: hidden;
+}
+.svg-content-responsive {
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+svg .rect {
+  fill: gold;
+  stroke: steelblue;
+  stroke-width: 5px;
+
   .line {
     position: relative;
     top: 0;
@@ -15,7 +35,10 @@
     width: 100%;
     height: 100%;
   }
-
+  svg {
+    height: auto;
+    width: 100%;
+  }
   .line2 {
     position: relative;
     top: 0;
@@ -65,39 +88,38 @@
       <!-- Three columns of text below the carousel -->
       <div class="row fade-in" data-aos="fade-right">
         <div class="col-lg-4">
-          <img src="{% static 'images/analytics.webp' %}" class="bd-placeholder-img rounded-circle" 
+          <a href="{% url 'services:service_list' %}#analytics">
+          <img  src="{% static 'images/analytics.webp' %}" class="bd-placeholder-img rounded-circle" 
           width="140" height="140" alt="Analytics">
+          </a>
           <h2 class="fw-normal">Data Analytics</h2>
           <p>Transforming messy data into actionable insights. We empower businesses to make 
             data-driven decisions for fast growth and efficiency.</p>
           <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
+        </div>
         <div class="col-lg-4">
-          <img src="{% static 'images/engineering.webp' %}" class="bd-placeholder-img rounded-circle" 
-          width="140" height="140" alt="Analytics">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-          </svg>
-          <h2 class="fw-normal">Data Engineering</h2>
-          <p>Building robust data infrastructures, we ensure seamless data collection,
-             storage, and processing to unlock your data's full potential.
-          </p>
-          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
+          <a href="{% url 'services:service_list' %}#engineering">
+              <img src="{% static 'images/engineering.webp' %}" class=" rounded-circle" width="140" height="140" alt="Analytics">
+        </a>
+        <h2 class="fw-normal">Data Engineering</h2>
+        <p>Building robust data infrastructures, we ensure seamless data collection,
+            storage, and processing to unlock your data's full potential.
+        </p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div>
         <div class="col-lg-4">
-          <img src="{% static 'images/ai.webp' %}" class="bd-placeholder-img rounded-circle" 
-          width="140" height="140" alt="Analytics">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-          </svg>
+          <a href="{% url 'services:service_list' %}#automation">
+          <img  src="{% static 'images/ai.webp' %}" class="rounded-circle" 
+          width="140" height="140" alt="AI and Automation">
+          </a>
           <h2 class="fw-normal">AI and Automation</h2>
           <p>Personalize your customer interactions.
             Write custom marketing messaging without effort.
             Inject tailored content into your sales outreach.
            </p>
           <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
+        </div>
+      </div>
 
 
       <!-- START THE FEATURETTES -->
@@ -106,19 +128,15 @@
 
       <div class="row featurette fade-in" data-aos="fade-bottom">
         <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span
-              class="text-body-secondary">It’ll blow your mind.</span></h2>
-          <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose
-            here.</p>
+          <h2 class="featurette-heading fw-normal lh-1">Design driven approach to charts. <span
+              class="text-body-secondary">Forget ugly, messy Excel bars.</span></h2>
+          <p class="lead">We use data visualization to help you understand your business, and make charts 
+            you will <i>want</i> to show off to your stakeholders.
+            There's too many abandoned dashboard sitting around gathering dust. 
+            We put the big numbers first, but let you dive into the nitty gritty if you want.</p>
         </div>
         <div class="col-md-5">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-            height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%"
-              fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-          </svg>
+            {% include 'services/includes/chart-ridges.html' %}
         </div>
       </div>
 
@@ -126,7 +144,7 @@
 
       <div class="row featurette fade-in" data-aos="fade-bottom">
         <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-body-secondary">See
+          <h2 class="featurette-heading fw-normal lh-1">Make sense of your. <span class="text-body-secondary">See
               for yourself.</span></h2>
           <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this
             layout would work with some actual real-world content in place.</p>
@@ -141,33 +159,7 @@
           </svg>
         </div>
       </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette fade-in" data-aos="fade-top">
-        <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span
-              class="text-body-secondary">Checkmate.</span></h2>
-          <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really
-            intended to be actually read, simply here to give you a better view of what this would look like with some
-            actual content. Your content.</p>
-        </div>
-        <div class="col-md-5">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-            height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%"
-              fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-          </svg>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- /END THE FEATURETTES -->
-
-    </div><!-- /.container -->
+    </div>
 
 
     {% include 'services/includes/contact-us-form.html' %}

@@ -10,14 +10,14 @@
 - [X] Create footer
 - [X] Update colorscheme
 - [ ] Create pages
-  - [ ] Create homepage
-    - [ ] Wireframe
-    - [ ] Create skeleton
+  - [X] Create homepage
+    - [X] Wireframe
+    - [X] Create skeleton
     - [ ] Fill the copy
     - [ ] Fill the images
-- [ ] Add contact us to header
-- [ ] Research hosting
-- [ ] Host
+- [X] Add contact us to header
+- [X] Research hosting
+- [X] Host
 - [ ] Buy Domain
 - [ ] Connect domain to host
 - [ ] Create a simple font based logo
